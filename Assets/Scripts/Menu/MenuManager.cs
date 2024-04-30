@@ -1,19 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager instance;
-
+    public static MenuManager Instance;
     [SerializeField] MenuVisibility[] menus;
-
     public void Awake()
     {
-        instance = this;
+        Instance = this;
     }
-
     public void OpenMenuName(string menuName)
     {
         for (int i = 0; i < menus.Length; i++)
@@ -24,7 +20,7 @@ public class MenuManager : MonoBehaviour
             }
             else if (menus[i].isOpen)
             {
-                closeMenu(menus[i]);
+                CloseMenu(menus[i]);
             }
         }
     }
@@ -34,13 +30,12 @@ public class MenuManager : MonoBehaviour
         {
             if (menus[i].isOpen)
             {
-                closeMenu(menus[i]);
+                CloseMenu(menus[i]);
             }
-            menuMenu.Visible();
         }
+        menuMenu.Visible();
     }
-
-    private void closeMenu(MenuVisibility menu)
+    public void CloseMenu(MenuVisibility menu)
     {
         menu.NoVisible();
     }

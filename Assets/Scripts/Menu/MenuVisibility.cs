@@ -12,7 +12,6 @@ public class MenuVisibility : MonoBehaviour
         isOpen = true;
         gameObject.SetActive(true);
     }
-
     public void NoVisible()
     {
         isOpen = false;
